@@ -48,10 +48,12 @@ p.space {display: block;}
 }
 
 .current_question_border {
-    border: 5px solid blue;
+
     outline: 5px solid red;
     width: 110px;
-    height: 60px;
+    font-size: 350%;
+    text-align: center;
+    position: relative
 }
 
 .clock {

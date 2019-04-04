@@ -88,6 +88,7 @@ function nextQuestion(buttonOffset, direction) {
 
         currentQuestionIndex = currentQuestionIndex + buttonOffset;
         currentQuestion.innerHTML =currentQuestionIndex+1;
+        currentQuestion.set
 
         console.log(currentQuestionIndex + 1);
         document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
