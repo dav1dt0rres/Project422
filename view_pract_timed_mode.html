@@ -3,23 +3,46 @@
 
 <head>
     <link rel="stylesheet" href="layout_1.css">
-    <script src="lib/jquery-3.1.1.js"></script>
-    <script src="lib/seedrandom.js"></script>
-    <script src="algorithm.js"></script>
+
+    <script src="main.js"></script>
     <title>Website Title</title>
 </head>
 
 <body>
 
     <div class='page'>
-                  
+        <div class="row">
+            <div id="column1">
+                <button id="Home">HOME</button>
+
+
+
+                <div class="tab">
+                    <button class="tablinks" onclick="switchTab(event, 'Notes')">Notes</button>
+                    <button class="tablinks" onclick="switchTab(event, 'Bookmarks')">Bookmarks</button>
+                </div>
+
+                <!-- Tab content -->
+                <div id="Bookmarks" class="tabcontent">
+                    <div id="BookmarksTable" class="tabcontent"> </div>
+                    <h3>Bookmarks</h3>
+
+                </div>
+
+                <div id="Notes" class="tabcontent">
+                    <h3>Paris</h3>
+                    <p>Paris is the capital of France.</p>
+                </div>
+            </div>
+
+            <div id="column2">
         <div class='menu'>Menu
 
 
 
         </div>
         
-        <div class='sidebar'>Sidebar
+        <div class='sidebar' id="sidebar">Sidebar
             
             <div class="flex-contianer">
                 <div class="left-btn">
@@ -37,55 +60,23 @@
                     <button class="button button_question" id="twoForward" onclick="nextQuestion(2, 1)">>> </button>
                     <button class="button button_question" id="threeForward" onclick="nextQuestion(3, 1)">>></button>
                 </div>
-                <script>
-                        var currentQuestionIndex = 0;
-                        var questions = ["wut is 1 + 1?????!!!! ", "What is 2 + 2?", "what is 3 + 3?", "what is 4 + 4?", "what is 5 + 5?", "what is 6 + 6?", "what is 1 + 1? ", "What is 2 + 2?", "what is 3 + 3?", "what is 4 + 4?", "what is 5 + 5?", "what is 6 + 6?"];
-                        var answers = [["1", "2", "3", "4"], ["2", "3", "4", "5"], ["3", "4", "5", "9"], ["4", "8", "6", "7"], ["5", "10", "11", "520"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"]];
-                        var usersSelectedAnswers = {}; //set because hashable... usersSelectedAnswers[x] = answer for question x
-                        function nextQuestion(buttonOffset, direction) {
-                            var currentQuestion = document.getElementById("currentQuestion");
-                            
-                            //update question buttons
-                            if(direction)
-                            {
-                                currentQuestion.innerHTML = questions[currentQuestionIndex + buttonOffset];
-                                currentQuestionIndex = currentQuestionIndex + buttonOffset;
-                                console.log(currentQuestionIndex + 1);
-                                document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
-                                document.getElementById("twoBack").textContent = currentQuestionIndex + 1 - 2;
-                                document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
-                                document.getElementById("oneForward").textContent = currentQuestionIndex + 2;
-                                document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
-                                document.getElementById("threeForward").textContent = currentQuestionIndex + 4;
-                            }
-                            else
-                            {
-                                currentQuestionIndex = currentQuestionIndex + buttonOffset;
-                                console.log(currentQuestionIndex + 1);
-                                currentQuestion.innerHTML = questions[currentQuestionIndex];
-                                
-                                document.getElementById("threeBack").textContent = currentQuestionIndex - 2;
-                                document.getElementById("twoBack").textContent = currentQuestionIndex - 1;
-                                document.getElementById("oneBack").textContent = currentQuestionIndex;
-                                document.getElementById("oneForward").textContent = currentQuestionIndex + 2;
-                                document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
-                                document.getElementById("threeForward").textContent = currentQuestionIndex + 4;
-                            }
 
-                            //update ansers for current question:
-                            document.getElementById("answerA").textContent = answers[currentQuestionIndex][0];
-                            document.getElementById("answerB").textContent = answers[currentQuestionIndex][1];
-                            document.getElementById("answerC").textContent = answers[currentQuestionIndex][2];
-                            document.getElementById("answerD").textContent = answers[currentQuestionIndex][3];
-                        }
-
-                        function answerQuestion(ans) {
-                            usersSelectedAnswers[currentQuestionIndex] = ans;
-                        }
-                    </script>
             </div>
 
+            <div id="flex-contianer"class="flex-contianer">
+
+
+
+                <div class="right-btn" id="clock_container">
+
+                   </div>
+
+            </div>
+
+
         </div>
+
+
         <div class='content'>Content
             <h2>If x and y are not equal, than choose the best the answer</h2>
             <p class="space"></p>
@@ -138,9 +129,9 @@
         <div class='footer'>Footer
 
 
+            </div>
 
-
-
+            </div>
         </div>
     </div>
 </body>
