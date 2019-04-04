@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="main_menu.css">
+    <link rel="stylesheet" href="breadcrumbs.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src=
   "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src=
@@ -15,25 +17,21 @@
 
 <body>
         <div class="container">
+            <ul class="breadcrumb">
+                <li>Main Menu</li>
+            </ul>
             <div class="row">
-                <div id="top_bar">
-                    <div class="col-md-1" id ="option">
-                        <!-- Potential toolbar -->
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div id = "main">
+                <div class="col-md-12" id = "main">
                     <div id="intro">
                         Prep4Act
                     </div>
                     <div class="col-md-12" id="test_button">
-                            <a href="http://google.com"> <!-- TODO - link-->
+                            <a href="pract_mode_menu.html"> <!-- TODO - link-->
                                 <button id="practice_mode_button">Practice Mode</button>
                             </a>
                     </div>
                     <div class="col-md-12" id="test_button"> <!-- TODO - link-->
-                            <a href="http://google.com">
+                            <a href="timed_mode_menu.html">
                                 <button id="timed_mode_button">Timed Mode</button>
                             </a>
                     </div>
