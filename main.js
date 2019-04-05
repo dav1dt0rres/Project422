@@ -7,7 +7,19 @@ var answers = [["1", "2", "3", "4"], ["2", "3", "4", "5"], ["3", "4", "5", "9"],
 var usersSelectedAnswers = {}; //set because hashable... usersSelectedAnswers[x] = answer for question x
 var time_length = 60 ;
 var timeInterval;
-var practice=false;
+var practice;
+var url_string = window.location.href
+var bookmarks = [];
+var url = new URL(url_string);
+var c = url.searchParams.get("key");
+if (c=='0'){
+    console.log("practice mode")
+    practice=true;
+}
+else{
+    console.log("timed mode")
+    practice=false;
+}
 
 function startTime() {
     var today = new Date();
@@ -75,6 +87,33 @@ function startClock(){
     var p = document.getElementById("seconds-container");
     p.appendChild(newElement_1);
 }
+function checkifEnd(currentIndex){
+    if (currentIndex>10){
+        window.location.href="results_view.html"
+    }
+}
+function goToBookmarkedQuestion(bookmarkIndex) {
+    console.log("goToBookmarkedQuestion");
+    currentQuestionIndex = bookmarkIndex;
+    var currentQuestion = document.getElementById("currentQuestion");
+    var currentQuestionBox = document.getElementById("currentQuestion");
+    currentQuestionBox.innerHTML = "Question" + (bookmarkIndex + 1);
+    currentQuestion.innerHTML = currentQuestionIndex+1
+    document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
+    document.getElementById("twoBack").textContent = currentQuestionIndex + 1 - 2;
+    document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
+    document.getElementById("oneForward").textContent = currentQuestionIndex + 2;
+    document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
+    document.getElementById("threeForward").textContent = currentQuestionIndex + 4;
+
+    //update ansers for current question:
+    document.getElementById("answerA").textContent = answers[currentQuestionIndex][0];
+    document.getElementById("answerB").textContent = answers[currentQuestionIndex][1];
+    document.getElementById("answerC").textContent = answers[currentQuestionIndex][2];
+    document.getElementById("answerD").textContent = answers[currentQuestionIndex][3];
+
+
+}
 
 function nextQuestion(buttonOffset, direction) {
     var currentQuestion = document.getElementById("currentQuestion");
@@ -87,6 +126,7 @@ function nextQuestion(buttonOffset, direction) {
         //clearInterval(timeInterval)
 
         currentQuestionIndex = currentQuestionIndex + buttonOffset;
+        checkifEnd(currentQuestionIndex );
         currentQuestion.innerHTML =currentQuestionIndex+1;
         currentQuestion.set
 
@@ -125,53 +165,47 @@ function nextQuestion(buttonOffset, direction) {
 function answerQuestion(ans) {
     usersSelectedAnswers[currentQuestionIndex] = ans;
 }
+
+
 function bookmarkQuestion() {
     bookmarks.push(currentQuestionIndex);
     console.log(bookmarks);
-    console.log("inside bookmark")
-    var Bookmarks = document.getElementById("BookmarksTable");
-
-    var tbl = document.createElement("table");
-    tbl.setAttribute("id", "gameBoard");
-
-    var tblBody = document.createElement("tbody");
-
-    var boardColors = board.getAllCandies();
-    var columnIndecies = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-    for (var i = 0; i < 8; i++) {
-        var row = document.createElement("tr");
-
-        for (var j = 0; j < 8; j++) {
-            var cell = document.createElement("td");
-            cell.textContent = i + columnIndecies[j];
-            row.appendChild(cell);
-        }
-        tblBody.appendChild(row);
-    }
-
-    tbl.appendChild(tblBody);
-    Bookmarks.appendChild(tbl);
-    tbl.setAttribute("border", "1");
-
+    showBookmarks();
 }
 
+function showBookmarks() {
+    var bookmarksTable = document.getElementById('BookmarksTable');
+    bookmarksTable.innerHTML = "";
+
+    bookmarks.forEach(function (element) {
+        console.log(typeof element);
+        var bookmarkButton = document.createElement("BUTTON");
+        bookmarkButton.innerHTML = element + 1;
+        bookmarkButton.setAttribute("onclick", "goToBookmarkedQuestion("+element+")");
+        bookmarksTable.appendChild(bookmarkButton);
+    });
+}
+
+//this function and corresponding html tab code taken from:
+//https://www.w3schools.com/howto/howto_js_tabs.asp
 function switchTab(evt, tabName) {
-    // Declare all variables
     var i, tabcontent, tablinks;
-    console.log("inside switchtab")
-    // Get all elements with class="tabcontent" and hide them
+
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
 
-    // Get all elements with class="tablinks" and remove the class "active"
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
-    // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
+}
+
+function goHome(){
+    //TODO
+    //write code to take you back to the home screen here.............
 }

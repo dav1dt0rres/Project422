@@ -13,34 +13,19 @@
     <div class='page'>
         <div class="row">
             <div id="column1">
-                <button id="Home">HOME</button>
 
 
 
-                <div class="tab">
-                    <button class="tablinks" onclick="switchTab(event, 'Notes')">Notes</button>
-                    <button class="tablinks" onclick="switchTab(event, 'Bookmarks')">Bookmarks</button>
-                </div>
-
-                <!-- Tab content -->
-                <div id="Bookmarks" class="tabcontent">
-                    <div id="BookmarksTable" class="tabcontent"> </div>
-                    <h3>Bookmarks</h3>
-
-                </div>
-
-                <div id="Notes" class="tabcontent">
-                    <h3>Paris</h3>
-                    <p>Paris is the capital of France.</p>
-                </div>
             </div>
 
             <div id="column2">
-        <div class='menu'>Menu
+
+            <div class='menu'>
+                <input type="image" id="image" alt="Login" src="./15766.png" style="width:80px;" onclick="goHome()">
+            </div>
 
 
 
-        </div>
         
         <div class='sidebar' id="sidebar">Sidebar
             
@@ -127,8 +112,25 @@
 
 
         <div class='footer'>Footer
+            <div class="tab">
+                <button class="tablinks" onclick="switchTab(event, 'Notes')">Notes</button>
+                <button class="tablinks" onclick="switchTab(event, 'Bookmarks')">Bookmarks</button>
+            </div>
 
+            <!-- Tab content -->
+            <div id="Bookmarks" class="tabcontent">
+                <div class="tabcontent"> </div>
+                <h3>Bookmarks</h3>
 
+                <button onclick="bookmarkQuestion()">Bookmark This Question </button>
+                <div id="BookmarksTable"></div>
+
+            </div>
+
+            <div id="Notes" class="tabcontent">
+                <div>Notes: </div>
+                <textarea cols='100' rows='8'>Enter your notes here............</textarea>
+            </div>
             </div>
 
             </div>

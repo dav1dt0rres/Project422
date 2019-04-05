@@ -23,6 +23,7 @@
     height: 60px;
     border-radius: 90%;}
 
+
 p.ex4 {
 
     display: inline-block;
@@ -31,14 +32,6 @@ p.ex4 {
 p.space {display: block;}
 .inline{display:inline}
 
-.border-question
-{
-
-    padding: 1em;
-    border-style:solid;
-
-    border-color:#287EC7;
-}
 
 .flex-contianer {
     display: flex;
@@ -55,7 +48,6 @@ p.space {display: block;}
     text-align: center;
     position: relative
 }
-
 .clock {
     border-radius: 50%;
     background: #fff url('images/ios_clock.svg') no-repeat center;
@@ -83,13 +75,13 @@ p.space {display: block;}
         transform: rotateZ(360deg);
     }
 }
- .seconds-container {
+.seconds-container {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-     animation: rotate 60s infinite linear;
+    animation: rotate 60s infinite linear;
 }
 
 .seconds {
@@ -101,16 +93,6 @@ p.space {display: block;}
     transform-origin: 50% 80%;
     width: 1%;
     z-index: 8;
-}
-
-#column1 {
-    float: left;
-    width: 12%;
-}
-
-#column2 {
-    float: right;
-    width: 88%;
 }
 
 /* Clear floats after the columns */
@@ -125,7 +107,8 @@ p.space {display: block;}
     background-color: green;
     display: block;
     margin: 0 auto;
-    font-size: 100%;
+    font-size: 300%;
+    float: left;
 }
 
 
@@ -135,12 +118,11 @@ p.space {display: block;}
     border: 1px solid #ccc;
     background-color: #f1f1f1;
 }
-
 .full_clock{
     border: 1px solid #ccc;
     font-family: "Times New Roman", Times, serif;
 
-width: 50%;
+    width: 50%;
 }
 /* Style the buttons that are used to open the tab content */
 .tab button {
