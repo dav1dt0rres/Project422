@@ -5,6 +5,11 @@ RGB 0, 181, 226 - UIC CYAN
 RGB 0, 30, 98 - UIC NAVY-BLUE
 */
 
+#fullpage {
+  margin-left: auto;
+  margin-right: 50%;
+}
+
 button {
   background-color: rgb(0, 30, 98);
   border: none;
@@ -15,6 +20,7 @@ button {
   display: inline-block;
   font-size: 16px;
   width: 100%; /* This is here since it doesn't seem to work in test_button */
+  max-width: 500px
 }
 
 #test_button {
@@ -22,16 +28,11 @@ button {
   margin: 10px;
 }
 
-
 button:hover {
   background-color: rgb(42, 91, 206);
 }
 
 body {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-  top: 50%;
 }
 
 #intro {
