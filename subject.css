@@ -23,31 +23,31 @@ button {
 }
 
 #english_button {
-  background: rgb(0, 97, 44)
+  background: rgb(0, 30, 98)
 }
 #english_button:hover {
-  background: rgb(0, 173, 78)
+  background: rgb(42, 91, 206)
 }
 
 #reading_button {
-  background: rgb(126, 0, 0)
+  background: rgb(0, 30, 98)
 }
 #reading_button:hover {
-  background: rgb(214, 39, 39)
+  background: rgb(42, 91, 206)
 }
 
 #math_button {
   background: rgb(0, 30, 98)
 }
 #math_button:hover {
-  background: rgb(23, 79, 209)
+  background: rgb(42, 91, 206)
 }
 
 #science_button {
-  background: rgb(100, 102, 0)
+  background: rgb(0, 30, 98)
 }
 #science_button:hover {
-  background: rgb(216, 196, 19)
+  background: rgb(42, 91, 206)
 }
 
 #full_test_button {
