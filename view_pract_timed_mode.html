@@ -49,13 +49,13 @@
 
 
         
-        <div class='sidebar' id="sidebar">Sidebar
+        <div class='sidebar' id="sidebar">
 
             <div class="flex-contianer">
                 <div class="left-btn">
-                    <button class="button button_question" id="threeBack" onclick="nextQuestion(-3, 0)"><<<</button>
-                    <button class="button button_question" id="twoBack" onclick="nextQuestion(-2, 0)"><<</button>
-                    <button class="button button_question" id="oneBack" onclick="nextQuestion(-1, 0)"><</button>
+                    <button class="button button_question" disabled id="threeBack" onclick="nextQuestion(-3, 0)"></button>
+                    <button class="button button_question" disabled id="twoBack" onclick="nextQuestion(-2, 0)"></button>
+                    <button class="button button_question" disabled id="oneBack" onclick="nextQuestion(-1, 0)"></button>
                 </div>
 
                 <div class="current_question_border" id="currentQuestion">
@@ -63,9 +63,9 @@
 
                 </div>
                 <div class="right-btn">
-                    <button class="button button_question" id="oneForward" onclick="nextQuestion(1, 1)">></button>
-                    <button class="button button_question" id="twoForward" onclick="nextQuestion(2, 1)">>> </button>
-                    <button class="button button_question" id="threeForward" onclick="nextQuestion(3, 1)">>></button>
+                    <button class="button button_question" id="oneForward" onclick="nextQuestion(1, 1)">2</button>
+                    <button class="button button_question" id="twoForward" onclick="nextQuestion(2, 1)">3 </button>
+                    <button class="button button_question" id="threeForward" onclick="nextQuestion(3, 1)">4</button>
                 </div>
 
             </div>
@@ -90,12 +90,13 @@
         </div>
 
 
-        <div class='content'>Content
+        <div class='content'>
 
-            <h2>If x and y are not equal, than choose the best the answer</h2>
+            <h2>Total Elapsed Time</h2>
+            <div id="currentQuestionArea"> Question</div>
             <p class="space"></p>
             <span>
-                <button class="button button_answer" onclick="answerQuestion('A')">A.)</button>
+                <button id="ansA" class="button button_answer" onclick="answerQuestion('A')">A.)</button>
 
             </span>
             <span id="answerA" class="border-question" >
@@ -106,7 +107,7 @@
 
             <p class="space"></p>
             <span>
-                <button class="button button_answer" onclick="answerQuestion('B')">B.)</button>
+                <button id="ansB" class="button button_answer" onclick="answerQuestion('B')">B.)</button>
 
 
             </span>
@@ -118,7 +119,7 @@
             </span>
             <p class="space"></p>
             <span>
-                <button id="buttonC" class="button button_answer" onclick="answerQuestion('C')">C.)</button>
+                <button id="ansC" class="button button_answer" onclick="answerQuestion('C')">C.)</button>
 
             </span>
             <span id="answerC" class="border-question">
@@ -128,7 +129,7 @@
             </span>
             <p class="space"></p>
             <span>
-                <button class="button button_answer" onclick="answerQuestion('D')">D.)</button>
+                <button id="ansD" class="button button_answer" onclick="answerQuestion('D')">D.)</button>
 
             </span>
             <span id="answerD" class="border-question">
@@ -140,13 +141,12 @@
 
 
 
-        <div class='footer'>Footer
+        <div class='footer'>
             <div class="tab">
                 <button class="tablinks" onclick="switchTab(event, 'Notes')">Notes</button>
                 <button class="tablinks" onclick="switchTab(event, 'Bookmarks')">Bookmarks</button>
             </div>
 
-            <!-- Tab content -->
             <div id="Bookmarks" class="tabcontent">
                 <div class="tabcontent"> </div>
                 <h3>Bookmarks</h3>
