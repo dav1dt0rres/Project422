@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="pageFormat">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="results_view.css">
+    <script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+    </script>
+    <script src=
+        "https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.2/seedrandom.js">
+    </script>
+    <script src="results_view.js"></script>
+    <input type="image" id="image" alt="Login" src="images/15766.png" style="width:80px;" onclick="goHome()">
+    <h1 class=resultsHeader>Test Results</h1>
+    <title>Results Page</title>
+
+    
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="grid-container">
+            <div class="grid-item">Overall Score</div>
+            <div class="grid-item">55/60</div>
+        </div>
+    </div>
+        <!-- <h3>Q4: What is the Capital of Utah?</h3>
+        <h4>A). Arkansas <br> B). Austin <br> C). Provo <br> D). Salt Lake City</h4> -->
+
+    <div>
+        <h3 id="currentQuestion" class="questionString">Q4: What is the Capital of Utah?</h3>
+        <table class=answersTable>
+            <tr id="answerA" class="selectedAnswerRow">
+                <td>A)</td><td>Arkansas</td>
+            </tr>
+            <tr  id="answerB">
+                <td>B)</td><td>Austin</td>
+            </tr>
+            <tr  id="answerC">
+                <td>C)</td><td>Provo</td>
+            </tr>
+            <tr  id="answerD" class="correctAnswerRow">
+                <td>D)</td><td>Salt Lake City</td>
+                <td style="background-color: default"> <-- Correct Answer! </td>
+            </tr>
+        </table>
+        <br/>
+    </div>
+
+    <div class="buttonWrapper" role="group">
+        <button class="navButton" onclick="previousQuestion()" type="button">Prev<br/><--</button>
+        <!-- <button class="navButton" type="button">Skip<br/>X</button> -->
+        <button class="navButton" onclick="nextQuestion()" type="button">Next<br/>--></button></div>
+</body>
+
+</html>

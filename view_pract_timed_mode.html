@@ -5,7 +5,27 @@
     <link rel="stylesheet" href="layout_1.css">
 
     <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <title>Website Title</title>
+    <script>
+
+        $(document).ready(function(){
+            var time = 10;
+            var initialOffset = '440';
+            var i = 1
+            $('.circle_animation').css('stroke-dashoffset', initialOffset-(1*(initialOffset/time)));
+
+            var interval = setInterval(function() {
+                $('h2').text(i);
+                if (i == time) {
+                    clearInterval(interval);
+                    return;
+                }
+                $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
+                i++;
+            }, 1000);
+        });
+    </script>
 </head>
 
 <body>
@@ -28,7 +48,7 @@
 
         
         <div class='sidebar' id="sidebar">Sidebar
-            
+
             <div class="flex-contianer">
                 <div class="left-btn">
                     <button class="button button_question" id="threeBack" onclick="nextQuestion(-3, 0)"><<<</button>
@@ -56,6 +76,12 @@
 
                    </div>
 
+                <div class="item">
+                    <h2>60</h2>
+                    <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+                        <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+                    </svg>
+                </div>
             </div>
 
 
@@ -63,6 +89,7 @@
 
 
         <div class='content'>Content
+
             <h2>If x and y are not equal, than choose the best the answer</h2>
             <p class="space"></p>
             <span>

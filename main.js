@@ -42,13 +42,20 @@ function startClock(){
 
     console.log("Inside reset Clock")
 
+
+
     if(practice){
         console.log("practice mode so no CLock")
         return;
     }
+////////////////
 
 
+    /* Need initial run as interval hasn't yet occured... */
 
+
+    //////////////////*
+    /*
     var deleted=document.getElementById("clock");
     if (deleted==null){
        console.log("No Clock exists")
@@ -86,6 +93,7 @@ function startClock(){
     newElement_1.className="seconds"
     var p = document.getElementById("seconds-container");
     p.appendChild(newElement_1);
+    */
 }
 function checkifEnd(currentIndex){
     if (currentIndex>10){

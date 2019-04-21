@@ -1,0 +1,92 @@
+.pageFormat {
+    padding: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: Arial;
+}
+
+.resultsHeader {
+    color: rgb(0, 30, 98);
+    text-align: center;
+    font-size: 50px;
+}
+
+.overallScoreHeader {
+    text-align: center;
+}
+
+.questionString {
+    font-size: 25px;
+}
+
+.answersTable {
+    font-size: 20px;
+}
+
+.answersTable td:nth-child(1) {
+    width: 15px;
+}
+
+.selectedAnswerRow {
+    background-color: orangered;
+}
+
+.correctAnswerRow {
+    background-color: limegreen;
+}
+
+.grid-container {
+    display: grid;
+    font-size: 35px;
+    grid-column-gap: 40px;
+    grid-template-columns: 100px 100px;
+    text-align: center;
+    justify-content: center;
+    border: 10px solid rgb(0, 30, 98);
+    width: 350px;
+}
+
+.grid-container .grid-item:nth-child(2) {
+    font-size: 50px;
+}
+
+.grid-item {
+    display: flex;
+    align-items: center;
+}
+
+.wrapper {
+    justify-content: center;
+    position: absolute;
+    right: 0px;
+    margin-right: 10%;
+}
+
+.buttonWrapper {
+    /* padding-left: 85%; */
+    right: 0px;
+    position: absolute;
+    margin-right: 10%;
+}
+
+.navButton {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 20px 20px;
+    border: none;
+    background-color: rgb(0, 30, 98);
+    color: white;
+}
+
+.navButton:hover {
+    background-color: rgb(42, 91, 206);
+    cursor: pointer;
+  }
+
+  #Home {
+    color: black;
+    background-color: green;
+    font-size: 100%;
+    left: 0;
+    cursor: pointer;
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="layout_1.css">
+    <script src="lib/jquery-3.1.1.js"></script>
+    <script src="lib/seedrandom.js"></script>
+    <script src="algorithm.js"></script>
+    <title>Website Title</title>
+</head>
+
+<body>
+
+<div class='page'>
+    <div id="column2">
+
+        <div class='menu'>
+            <input type="image" id="image" alt="Login" src="images/15766.png" style="width:80px;" onclick="goHome()">
+        </div>
+
+        <div class='sidebar'>Sidebar
+
+            <div class="flex-contianer">
+                <div class="left-btn">
+                    <button class="button button_question" id="threeBack" onclick="nextQuestion(-3, 0)">
+                        <<<</button> <button class="button button_question" id="twoBack"
+                                             onclick="nextQuestion(-2, 0)">
+                    <<</button> <button class="button button_question" id="oneBack"
+                                        onclick="nextQuestion(-1, 0)">
+                    <</button> </div>
+                <div class="current_question_border" id="currentQuestion">Question 1</div>
+                <div class="right-btn">
+                    <button class="button button_question" id="oneForward" onclick="nextQuestion(1, 1)">></button>
+                    <button class="button button_question" id="twoForward" onclick="nextQuestion(2, 1)">>>
+                    </button>
+                    <button class="button button_question" id="threeForward"
+                            onclick="nextQuestion(3, 1)">>></button>
+                </div>
+                <script>
+                    var currentQuestionIndex = 0;
+                    var questions = ["wut is 1 + 1?????!!!! ", "What is 2 + 2?", "what is 3 + 3?", "what is 4 + 4?", "what is 5 + 5?", "what is 6 + 6?", "what is 1 + 1? ", "What is 2 + 2?", "what is 3 + 3?", "what is 4 + 4?", "what is 5 + 5?", "what is 6 + 6?"];
+                    var answers = [["1", "2", "3", "4"], ["2", "3", "4", "5"], ["3", "4", "5", "9"], ["4", "8", "6", "7"], ["5", "10", "11", "520"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"]];
+                    var usersSelectedAnswers = {}; //set because hashable... usersSelectedAnswers[x] = answer for question x
+                    var bookmarks = [];
+
+                    function goToBookmarkedQuestion(bookmarkIndex) {
+                        console.log("goToBookmarkedQuestion");
+                        currentQuestionIndex = bookmarkIndex;
+                        var currentQuestion = document.getElementById("question");
+                        var currentQuestionBox = document.getElementById("currentQuestion");
+                        currentQuestionBox.innerHTML = "Question" + (bookmarkIndex + 1);
+                        currentQuestion.innerHTML = questions[currentQuestionIndex];
+                        document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
+                        document.getElementById("twoBack").textContent = currentQuestionIndex + 1 - 2;
+                        document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
+                        document.getElementById("oneForward").textContent = currentQuestionIndex + 2;
+                        document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
+                        document.getElementById("threeForward").textContent = currentQuestionIndex + 4;
+
+                        //update ansers for current question:
+                        document.getElementById("answerA").textContent = answers[currentQuestionIndex][0];
+                        document.getElementById("answerB").textContent = answers[currentQuestionIndex][1];
+                        document.getElementById("answerC").textContent = answers[currentQuestionIndex][2];
+                        document.getElementById("answerD").textContent = answers[currentQuestionIndex][3];
+
+
+                    }
+
+                    function nextQuestion(buttonOffset, direction) {
+                        var currentQuestion = document.getElementById("question");
+
+                        //update question buttons
+                        if (direction) {
+                            currentQuestion.innerHTML = questions[currentQuestionIndex + buttonOffset];
+                            currentQuestionIndex = currentQuestionIndex + buttonOffset;
+                            var currentQuestionBox = document.getElementById("currentQuestion");
+                            currentQuestionBox.innerHTML = "Question " + (currentQuestionIndex + 1);
+
+                            document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
+                            document.getElementById("twoBack").textContent = currentQuestionIndex + 1 - 2;
+                            document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
+                            document.getElementById("oneForward").textContent = currentQuestionIndex + 2;
+                            document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
+                            document.getElementById("threeForward").textContent = currentQuestionIndex + 4;
+                        }
+                        else {
+                            currentQuestionIndex = currentQuestionIndex + buttonOffset;
+                            console.log(currentQuestionIndex + 1);
+                            currentQuestion.innerHTML = questions[currentQuestionIndex];
+
+                            var currentQuestionBox = document.getElementById("currentQuestion");
+                            currentQuestionBox.innerHTML = "Question " + (currentQuestionIndex + 1);
+
+                            document.getElementById("threeBack").textContent = currentQuestionIndex - 2;
+                            document.getElementById("twoBack").textContent = currentQuestionIndex - 1;
+                            document.getElementById("oneBack").textContent = currentQuestionIndex;
+                            document.getElementById("oneForward").textContent = currentQuestionIndex + 2;
+                            document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
+                            document.getElementById("threeForward").textContent = currentQuestionIndex + 4;
+                        }
+
+                        //update ansers for current question:
+                        document.getElementById("answerA").textContent = answers[currentQuestionIndex][0];
+                        document.getElementById("answerB").textContent = answers[currentQuestionIndex][1];
+                        document.getElementById("answerC").textContent = answers[currentQuestionIndex][2];
+                        document.getElementById("answerD").textContent = answers[currentQuestionIndex][3];
+                    }
+
+                    function answerQuestion(ans) {
+                        usersSelectedAnswers[currentQuestionIndex] = ans;
+                    }
+
+                    function bookmarkQuestion() {
+                        bookmarks.push(currentQuestionIndex);
+                        console.log(bookmarks);
+                        showBookmarks();
+                    }
+
+                    function showBookmarks() {
+                        var bookmarksTable = document.getElementById('BookmarksTable');
+                        bookmarksTable.innerHTML = "";
+
+                        bookmarks.forEach(function (element) {
+                            console.log(typeof element);
+                            var bookmarkButton = document.createElement("BUTTON");
+                            bookmarkButton.innerHTML = element + 1;
+                            bookmarkButton.setAttribute("onclick", "goToBookmarkedQuestion("+element+")");
+                            bookmarksTable.appendChild(bookmarkButton);
+                        });
+                    }
+
+                    //this function and corresponding html tab code taken from:
+                    //https://www.w3schools.com/howto/howto_js_tabs.asp
+                    function switchTab(evt, tabName) {
+                        var i, tabcontent, tablinks;
+
+                        tabcontent = document.getElementsByClassName("tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+
+                        document.getElementById(tabName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+
+                    function goHome(){
+                        //TODO
+                        //write code to take you back to the home screen here.............
+                    }
+
+                </script>
+            </div>
+
+        </div>
+        <div class='content'>Content
+            <h2 id="question">If x and y are not equal, than choose the best the answer</h2>
+            <p class="space"></p>
+            <span>
+                    <button class="button button_answer" onclick="answerQuestion('A')">A.)</button>
+
+                </span>
+            <span id="answerA" class="border-question">
+                    A.) erat pulvinar, at pulvinar felis blandit. <p class="ex4">HELLO WORLD!</p> Vestibulum volut
+
+
+                </span>
+
+            <p class="space"></p>
+            <span>
+                    <button class="button button_answer" onclick="answerQuestion('B')">B.)</button>
+
+
+                </span>
+            <span id="answerB" class="border-question">
+
+                    B.) erat pulvinar, at pulvinar felis blandit. <p class="ex4">HELLO WORLD!</p> Vestibulum
+                    volutpat tellus
+                    diam, consequat gravida libero rhoncus ut.
+
+                </span>
+            <p class="space"></p>
+            <span>
+                    <button id="buttonC" class="button button_answer" onclick="answerQuestion('C')">C.)</button>
+
+                </span>
+            <span id="answerC" class="border-question">
+                    C.) erat pulvinar, at pulvinar felis blandit. <p class="ex4">HELLO WORLD!</p> Vestibulum
+                    volutpat tellus
+                    diam, consequat gravida libero rhoncus ut.
+
+                </span>
+            <p class="space"></p>
+            <span>
+                    <button class="button button_answer" onclick="answerQuestion('D')">D.)</button>
+
+                </span>
+            <span id="answerD" class="border-question">
+                    D.) erat pulvinar, at pulvinar felis blandit. <p class="ex4">HELLO WORLD!</p> Vestibulum
+                    volutpat tellus
+                    diam, consequat gravida libero rhoncus ut.
+
+                </span>
+        </div>
+
+        <div class='footer'>Footer
+            <div class="tab">
+                <button class="tablinks" onclick="switchTab(event, 'Notes')">Notes</button>
+                <button class="tablinks" onclick="switchTab(event, 'Bookmarks')">Bookmarks</button>
+            </div>
+
+            <!-- Tab content -->
+            <div id="Bookmarks" class="tabcontent">
+                <div class="tabcontent"> </div>
+                <h3>Bookmarks</h3>
+
+                <button onclick="bookmarkQuestion()">Bookmark This Question </button>
+                <div id="BookmarksTable"></div>
+
+            </div>
+
+            <div id="Notes" class="tabcontent">
+                <div>Notes: </div>
+                <textarea cols='100' rows='8'>Enter your notes here............</textarea>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>
