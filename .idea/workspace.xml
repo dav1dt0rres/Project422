@@ -547,10 +547,9 @@
       <change afterPath="$PROJECT_DIR$/../untitled/venv/Scripts/xlwings32-0.15.1.dll" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../untitled/venv/Scripts/xlwings64-0.15.1.dll" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../untitled/venv/pyvenv.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout_1.css" beforeDir="false" afterPath="$PROJECT_DIR$/layout_1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view_pract_timed_mode.html" beforeDir="false" afterPath="$PROJECT_DIR$/view_pract_timed_mode.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subject.css" beforeDir="false" afterPath="$PROJECT_DIR$/subject.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -564,11 +563,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view_pract_timed_mode.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="82" column="26" lean-forward="true" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+            <state relative-caret-position="335">
+              <caret line="86" lean-forward="true" selection-end-line="167" selection-end-column="7" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -579,11 +578,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/layout_1.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="135" column="19" lean-forward="true" selection-start-line="135" selection-start-column="19" selection-end-line="135" selection-end-column="19" />
+            <state relative-caret-position="161">
+              <caret line="136" column="64" selection-start-line="136" selection-start-column="64" selection-end-line="136" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -591,8 +590,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+            <state relative-caret-position="93">
+              <caret line="41" lean-forward="true" selection-end-line="218" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -772,7 +771,7 @@
       <updated>1554272362138</updated>
       <workItem from="1554272365350" duration="46670000" />
       <workItem from="1554836813632" duration="1205000" />
-      <workItem from="1555805615608" duration="11593000" />
+      <workItem from="1555805615608" duration="11624000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;first commit&quot;">
       <created>1554321654636</created>
@@ -820,7 +819,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59468000" />
+    <option name="totallyTimeSpent" value="59499000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -832,8 +831,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2574899" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -969,30 +967,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layout_1.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="135" column="19" lean-forward="true" selection-start-line="135" selection-start-column="19" selection-end-line="135" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view_pract_timed_mode.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="82" column="26" lean-forward="true" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+        <state relative-caret-position="335">
+          <caret line="86" lean-forward="true" selection-end-line="167" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#3;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="41" lean-forward="true" selection-end-line="218" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout_1.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="136" column="64" selection-start-line="136" selection-start-column="64" selection-end-line="136" selection-end-column="64" />
         </state>
       </provider>
     </entry>
