@@ -1,10 +1,15 @@
-/* 
-Colors I used:
-RGB 213, 0, 50 - UIC RED
-RGB 0, 181, 226 - UIC CYAN
-RGB 0, 30, 98 - UIC NAVY-BLUE
-*/
+/* References used are on the bottom */
 
+:root{
+  --multiple_choice_unselected: rgb(216, 216, 216);
+  --multiple_choice_hover1: rgb(189, 189, 189); /*highlight answer on hover*/
+  --multiple_choice_hover2: rgb(228, 228, 228); /*highlight left icon on hover*/
+  --multiple_choice_selected1: rgb(200, 248, 185); /*selected answer*/
+  --multiple_choice_selected2: rgb(33, 150, 243); /*selected answer's bubble*/
+  --multiple_choice_selected3: rgb(255, 255, 255); /*selected answer's inner dot*/
+}
+
+/* This is the wrapper to test multiple things and distinguish their boundry */
 #box{
   padding: 5px;
   border: 2px solid black;
@@ -30,15 +35,6 @@ RGB 0, 30, 98 - UIC NAVY-BLUE
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-:root{
-  --multiple_choice_unselected: rgb(216, 216, 216);
-  --multiple_choice_hover1: rgb(189, 189, 189); /*highlight answer on hover*/
-  --multiple_choice_hover2: rgb(228, 228, 228); /*highlight left icon on hover*/
-  --multiple_choice_selected1: rgb(200, 248, 185); /*selected answer*/
-  --multiple_choice_selected2: rgb(33, 150, 243); /*selected answer's bubble*/
-  --multiple_choice_selected3: rgb(255, 255, 255); /*selected answer's inner dot*/
 }
 
 /* color of multiple choice circle when unchecked */
@@ -102,3 +98,10 @@ button:hover {
   font-size: 64px;
   text-align: center;
 }
+
+/* References */
+/*
+https://www.w3schools.com/howto/howto_css_custom_checkbox.asp
+https://www.w3schools.com/css/css3_borders.asp
+https://www.w3schools.com/css/css3_variables.asp
+*/
