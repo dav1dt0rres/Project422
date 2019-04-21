@@ -3,6 +3,7 @@ Breadcrumbs CSS guide followed: https://www.w3schools.com/howto/howto_css_breadc
 */
 
 ul.breadcrumb {
+  margin-top: 20px;
   padding: 10px 16px;
   list-style: none;
   background-color: rgb(170, 170, 170);
