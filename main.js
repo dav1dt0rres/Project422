@@ -5,7 +5,7 @@ console.log("Entering Main")
 var questions = ["wut is 1 + 1?????!!!! ", "What is 2 + 2?", "what is 3 + 3?", "what is 4 + 4?", "what is 5 + 5?", "what is 6 + 6?", "what is 1 + 1? ", "What is 2 + 2?", "what is 3 + 3?", "what is 4 + 4?", "what is 5 + 5?", "what is 6 + 6?"];
 var answers = [["1", "2", "3", "4"], ["2", "3", "4", "5"], ["3", "4", "5", "9"], ["4", "8", "6", "7"], ["5", "10", "11", "520"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"], ["1", "2", "3", "4"]];
 var usersSelectedAnswers = {}; //set because hashable... usersSelectedAnswers[x] = answer for question x
-var time_length = 60 ;
+var time_length = 60;
 var timeInterval;
 var practice;
 var url_string = window.location.href
@@ -14,7 +14,7 @@ var url = new URL(url_string);
 var c = url.searchParams.get("key");
 
 
-window.onload = function() {
+window.onload = function () {
     document.getElementById("answerA").textContent = answers[currentQuestionIndex][0];
     document.getElementById("answerB").textContent = answers[currentQuestionIndex][1];
     document.getElementById("answerC").textContent = answers[currentQuestionIndex][2];
@@ -23,13 +23,13 @@ window.onload = function() {
 };
 
 
-if (c=='0'){
+if (c == '0') {
     console.log("practice mode")
-    practice=true;
+    practice = true;
 }
-else{
+else {
     console.log("timed mode")
-    practice=false;
+    practice = false;
 }
 
 function startTime() {
@@ -44,22 +44,22 @@ function startTime() {
     var t = setTimeout(startTime, 500);
 }
 function checkTime(i) {
-    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
     return i;
 }
 
 
-function startClock(){
+function startClock() {
 
     console.log("Inside reset Clock")
 
 
 
-    if(practice){
+    if (practice) {
         console.log("practice mode so no CLock")
         return;
     }
-////////////////
+    ////////////////
 
 
     /* Need initial run as interval hasn't yet occured... */
@@ -107,9 +107,9 @@ function startClock(){
     */
 }
 
-function checkifEnd(currentIndex){
-    if (currentIndex>10){
-        window.location.href="results_view.html"
+function checkifEnd(currentIndex) {
+    if (currentIndex > 10) {
+        window.location.href = "results_view.html"
     }
 }
 
@@ -119,104 +119,100 @@ function goToBookmarkedQuestion(bookmarkIndex) {
     var currentQuestion = document.getElementById("currentQuestion");
     var currentQuestionBox = document.getElementById("currentQuestion");
     currentQuestionBox.innerHTML = "Question" + (bookmarkIndex + 1);
-    currentQuestion.innerHTML = currentQuestionIndex+1;
+    currentQuestion.innerHTML = currentQuestionIndex + 1;
 
-    if (currentQuestionIndex + 1 - 3 > 0)
-    {
+    if (currentQuestionIndex + 1 - 3 > 0) {
         document.getElementById("threeBack").style.color = "black";
         document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
         document.getElementById("threeBack").disabled = false;
     }
-    else
-    {
+    else {
         document.getElementById("threeBack").textContent = "css is lame";
         document.getElementById("threeBack").style.color = "white";
     }
-        
-    if (currentQuestionIndex + 1 - 2 > 0)
-    {
+
+    if (currentQuestionIndex + 1 - 2 > 0) {
         document.getElementById("twoBack").style.color = "black";
         document.getElementById("twoBack").textContent = currentQuestionIndex + 1 - 2;
         document.getElementById("twoBack").disabled = false;
     }
-    else
-    {
+    else {
         document.getElementById("twoBack").textContent = "css is lame";
         document.getElementById("twoBack").style.color = "white";
     }
 
-    if(currentQuestionIndex + 1 - 1 > 0)
-    {
+    if (currentQuestionIndex + 1 - 1 > 0) {
         document.getElementById("oneBack").style.color = "black";
         document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
         document.getElementById("oneBack").disabled = false;
     }
-    else
-    {
+    else {
         document.getElementById("oneBack").textContent = "css is lame";
         document.getElementById("oneBack").style.color = "white";
     }
-    
+
     document.getElementById("oneForward").textContent = currentQuestionIndex + 2;
     document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
     document.getElementById("threeForward").textContent = currentQuestionIndex + 4;
 
     //update question and ansers for current question:
-    
+
     document.getElementById("answerA").textContent = answers[currentQuestionIndex][0];
     document.getElementById("answerB").textContent = answers[currentQuestionIndex][1];
     document.getElementById("answerC").textContent = answers[currentQuestionIndex][2];
     document.getElementById("answerD").textContent = answers[currentQuestionIndex][3];
     document.getElementById("currentQuestionArea").textContent = questions[currentQuestionIndex];
 
+    //put a green box around the answer the user selected
+
+    document.getElementById("ansA").style.outline = "";
+    document.getElementById("ansB").style.outline = "";
+    document.getElementById("ansC").style.outline = "";
+    document.getElementById("ansD").style.outline = "";
+    if (usersSelectedAnswers[currentQuestionIndex]) {
+        console.log("no answer2");
+        var id = "ans" + usersSelectedAnswers[currentQuestionIndex];
+        document.getElementById(id).style.outline = "2px solid green";
+    }
+
+
 }
 
 function nextQuestion(buttonOffset, direction) {
     var currentQuestion = document.getElementById("currentQuestion");
-    console.log("Inside next Question");
     //update question buttons
-
-    if(direction)
-    {
+    if (direction) {
         //clearInterval(timeInterval)
         currentQuestionIndex = currentQuestionIndex + buttonOffset;
-        checkifEnd(currentQuestionIndex );
-        currentQuestion.innerHTML =currentQuestionIndex+1;
-        currentQuestion.set
+        checkifEnd(currentQuestionIndex);
+        currentQuestion.innerHTML = currentQuestionIndex + 1;
 
-        console.log(currentQuestionIndex + 1);
-        if (currentQuestionIndex + 1 - 3 > 0)
-        {
+        if (currentQuestionIndex + 1 - 3 > 0) {
             document.getElementById("threeBack").style.color = "black";
             document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
             document.getElementById("threeBack").disabled = false;
         }
-        else
-        {
+        else {
             document.getElementById("threeBack").textContent = "css is lame";
             document.getElementById("threeBack").style.color = "white";
         }
-            
-        if (currentQuestionIndex + 1 - 2 > 0)
-        {
+
+        if (currentQuestionIndex + 1 - 2 > 0) {
             document.getElementById("twoBack").style.color = "black";
             document.getElementById("twoBack").textContent = currentQuestionIndex + 1 - 2;
             document.getElementById("twoBack").disabled = false;
         }
-        else
-        {
+        else {
             document.getElementById("twoBack").textContent = "css is lame";
             document.getElementById("twoBack").style.color = "white";
         }
 
-        if(currentQuestionIndex + 1 - 1 > 0)
-        {
+        if (currentQuestionIndex + 1 - 1 > 0) {
             document.getElementById("oneBack").style.color = "black";
             document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
             document.getElementById("oneBack").disabled = false;
         }
-        else
-        {
+        else {
             document.getElementById("oneBack").textContent = "css is lame";
             document.getElementById("oneBack").style.color = "white";
         }
@@ -225,12 +221,10 @@ function nextQuestion(buttonOffset, direction) {
         document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
         document.getElementById("threeForward").textContent = currentQuestionIndex + 4;
     }
-    else
-    {
+    else {
         //clearInterval(timeInterval)
         currentQuestionIndex = currentQuestionIndex + buttonOffset;
-        console.log(currentQuestionIndex + 1);
-        currentQuestion.innerHTML = currentQuestionIndex+1;
+        currentQuestion.innerHTML = currentQuestionIndex + 1;
 
         document.getElementById("threeBack").textContent = currentQuestionIndex - 2;
         document.getElementById("twoBack").textContent = currentQuestionIndex - 1;
@@ -239,13 +233,26 @@ function nextQuestion(buttonOffset, direction) {
         document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
         document.getElementById("threeForward").textContent = currentQuestionIndex + 4;
     }
-    startClock()
+
+    startClock();
     //update ansers for current question:
     document.getElementById("answerA").textContent = answers[currentQuestionIndex][0];
     document.getElementById("answerB").textContent = answers[currentQuestionIndex][1];
     document.getElementById("answerC").textContent = answers[currentQuestionIndex][2];
     document.getElementById("answerD").textContent = answers[currentQuestionIndex][3];
     document.getElementById("currentQuestionArea").textContent = questions[currentQuestionIndex];
+
+    //put a green box around the answer the user selected
+
+    document.getElementById("ansA").style.outline = "";
+    document.getElementById("ansB").style.outline = "";
+    document.getElementById("ansC").style.outline = "";
+    document.getElementById("ansD").style.outline = "";
+    if (usersSelectedAnswers[currentQuestionIndex]) {
+        console.log("no answer2");
+        var id = "ans" + usersSelectedAnswers[currentQuestionIndex];
+        document.getElementById(id).style.outline = "2px solid green";
+    }
     //startTimer(time_length)
 }
 
@@ -274,7 +281,7 @@ function showBookmarks() {
         console.log(typeof element);
         var bookmarkButton = document.createElement("BUTTON");
         bookmarkButton.innerHTML = element + 1;
-        bookmarkButton.setAttribute("onclick", "goToBookmarkedQuestion("+element+")");
+        bookmarkButton.setAttribute("onclick", "goToBookmarkedQuestion(" + element + ")");
         bookmarksTable.appendChild(bookmarkButton);
     });
 }
@@ -298,7 +305,7 @@ function switchTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-function goHome(){
+function goHome() {
     //TODO
     //write code to take you back to the home screen here.............
 }
