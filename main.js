@@ -12,6 +12,17 @@ var url_string = window.location.href
 var bookmarks = [];
 var url = new URL(url_string);
 var c = url.searchParams.get("key");
+
+
+window.onload = function() {
+    document.getElementById("answerA").textContent = answers[currentQuestionIndex][0];
+    document.getElementById("answerB").textContent = answers[currentQuestionIndex][1];
+    document.getElementById("answerC").textContent = answers[currentQuestionIndex][2];
+    document.getElementById("answerD").textContent = answers[currentQuestionIndex][3];
+    document.getElementById("currentQuestionArea").textContent = questions[currentQuestionIndex];
+};
+
+
 if (c=='0'){
     console.log("practice mode")
     practice=true;
@@ -95,31 +106,68 @@ function startClock(){
     p.appendChild(newElement_1);
     */
 }
+
 function checkifEnd(currentIndex){
     if (currentIndex>10){
         window.location.href="results_view.html"
     }
 }
+
 function goToBookmarkedQuestion(bookmarkIndex) {
     console.log("goToBookmarkedQuestion");
     currentQuestionIndex = bookmarkIndex;
     var currentQuestion = document.getElementById("currentQuestion");
     var currentQuestionBox = document.getElementById("currentQuestion");
     currentQuestionBox.innerHTML = "Question" + (bookmarkIndex + 1);
-    currentQuestion.innerHTML = currentQuestionIndex+1
-    document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
-    document.getElementById("twoBack").textContent = currentQuestionIndex + 1 - 2;
-    document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
+    currentQuestion.innerHTML = currentQuestionIndex+1;
+
+    if (currentQuestionIndex + 1 - 3 > 0)
+    {
+        document.getElementById("threeBack").style.color = "black";
+        document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
+        document.getElementById("threeBack").disabled = false;
+    }
+    else
+    {
+        document.getElementById("threeBack").textContent = "css is lame";
+        document.getElementById("threeBack").style.color = "white";
+    }
+        
+    if (currentQuestionIndex + 1 - 2 > 0)
+    {
+        document.getElementById("twoBack").style.color = "black";
+        document.getElementById("twoBack").textContent = currentQuestionIndex + 1 - 2;
+        document.getElementById("twoBack").disabled = false;
+    }
+    else
+    {
+        document.getElementById("twoBack").textContent = "css is lame";
+        document.getElementById("twoBack").style.color = "white";
+    }
+
+    if(currentQuestionIndex + 1 - 1 > 0)
+    {
+        document.getElementById("oneBack").style.color = "black";
+        document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
+        document.getElementById("oneBack").disabled = false;
+    }
+    else
+    {
+        document.getElementById("oneBack").textContent = "css is lame";
+        document.getElementById("oneBack").style.color = "white";
+    }
+    
     document.getElementById("oneForward").textContent = currentQuestionIndex + 2;
     document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
     document.getElementById("threeForward").textContent = currentQuestionIndex + 4;
 
-    //update ansers for current question:
+    //update question and ansers for current question:
+    
     document.getElementById("answerA").textContent = answers[currentQuestionIndex][0];
     document.getElementById("answerB").textContent = answers[currentQuestionIndex][1];
     document.getElementById("answerC").textContent = answers[currentQuestionIndex][2];
     document.getElementById("answerD").textContent = answers[currentQuestionIndex][3];
-
+    document.getElementById("currentQuestionArea").textContent = questions[currentQuestionIndex];
 
 }
 
@@ -130,17 +178,48 @@ function nextQuestion(buttonOffset, direction) {
 
     if(direction)
     {
-
         //clearInterval(timeInterval)
-
         currentQuestionIndex = currentQuestionIndex + buttonOffset;
         checkifEnd(currentQuestionIndex );
         currentQuestion.innerHTML =currentQuestionIndex+1;
         currentQuestion.set
 
         console.log(currentQuestionIndex + 1);
-        document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
-        document.getElementById("twoBack").textContent = currentQuestionIndex + 1 - 2;
+        if (currentQuestionIndex + 1 - 3 > 0)
+        {
+            document.getElementById("threeBack").style.color = "black";
+            document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
+            document.getElementById("threeBack").disabled = false;
+        }
+        else
+        {
+            document.getElementById("threeBack").textContent = "css is lame";
+            document.getElementById("threeBack").style.color = "white";
+        }
+            
+        if (currentQuestionIndex + 1 - 2 > 0)
+        {
+            document.getElementById("twoBack").style.color = "black";
+            document.getElementById("twoBack").textContent = currentQuestionIndex + 1 - 2;
+            document.getElementById("twoBack").disabled = false;
+        }
+        else
+        {
+            document.getElementById("twoBack").textContent = "css is lame";
+            document.getElementById("twoBack").style.color = "white";
+        }
+
+        if(currentQuestionIndex + 1 - 1 > 0)
+        {
+            document.getElementById("oneBack").style.color = "black";
+            document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
+            document.getElementById("oneBack").disabled = false;
+        }
+        else
+        {
+            document.getElementById("oneBack").textContent = "css is lame";
+            document.getElementById("oneBack").style.color = "white";
+        }
         document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
         document.getElementById("oneForward").textContent = currentQuestionIndex + 2;
         document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
@@ -148,7 +227,6 @@ function nextQuestion(buttonOffset, direction) {
     }
     else
     {
-
         //clearInterval(timeInterval)
         currentQuestionIndex = currentQuestionIndex + buttonOffset;
         console.log(currentQuestionIndex + 1);
@@ -167,11 +245,18 @@ function nextQuestion(buttonOffset, direction) {
     document.getElementById("answerB").textContent = answers[currentQuestionIndex][1];
     document.getElementById("answerC").textContent = answers[currentQuestionIndex][2];
     document.getElementById("answerD").textContent = answers[currentQuestionIndex][3];
+    document.getElementById("currentQuestionArea").textContent = questions[currentQuestionIndex];
     //startTimer(time_length)
 }
 
 function answerQuestion(ans) {
+    if (usersSelectedAnswers[currentQuestionIndex]) {
+        var id = "ans" + usersSelectedAnswers[currentQuestionIndex];
+        document.getElementById(id).style.outline = "";
+    }
     usersSelectedAnswers[currentQuestionIndex] = ans;
+    var id = "ans" + ans;
+    document.getElementById(id).style.outline = "2px solid green";
 }
 
 
