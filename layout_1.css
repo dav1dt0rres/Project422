@@ -1,6 +1,6 @@
 .menu {
     height: 100px;
-    background-color: rgb(177, 212, 192);
+    background-color: rgba(138,188,159,0.5);
 }
 
 .sidebar {
@@ -22,8 +22,8 @@
 .footer {
     height: 150px;
     padding: 3em 10%;
-    color: rgb(0, 0, 0);
-    background-color: #325050;
+    color: #fff;
+    background: #134347;
     text-align: center;    /* Light blue */
 }
 
@@ -199,16 +199,13 @@ svg {
     color: #235050;
 }
 
-html{
-    background-color: #EDF4F0;
-}
-  
-#Bookmarks, #Notes {
-    background-color: #EDF4F0;
-}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
 
-#home_image {
-    position: absolute;
-    left: 20px;
-    top: 15px;
-}
+.grid-item {
+    padding: 3px;
+    font-size: 30px;
+    text-align: center;
+  }
