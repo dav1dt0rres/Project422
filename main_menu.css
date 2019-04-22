@@ -6,7 +6,7 @@ RGB 0, 30, 98 - UIC NAVY-BLUE
 */
 
 button {
-  background-color: rgb(0, 30, 98);
+  background-color: #325050;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -22,18 +22,15 @@ button {
   width: 100%; /* This doesn't work for some reason */
 }
 #test_button:hover {
-  background-color: rgb(42, 91, 206);
+  background-color: rgb(116, 207, 156);
 }
 
 #about_button {
   width: 25%;
-  background-color: rgb(165, 2, 2);
+  background-color: rgb(141, 35, 35);
 }
 #about_button:hover {
   background-color: rgb(228, 49, 49);
-}
-
-body {
 }
 
 #intro {
@@ -46,4 +43,11 @@ p {
   text-align: center;
   margin: auto;
   max-width: 350px;
+}
+
+html {
+  background-color: #EDF4F0;
+}
+.col-md-12 {
+  background-color: #EDF4F0;
 }
