@@ -20,6 +20,10 @@ window.onload = function () {
     document.getElementById("answerC").textContent = answers[currentQuestionIndex][2];
     document.getElementById("answerD").textContent = answers[currentQuestionIndex][3];
     document.getElementById("currentQuestionArea").textContent = questions[currentQuestionIndex];
+
+    document.getElementById("oneBack").style.visibility = 'hidden';
+    document.getElementById("twoBack").style.visibility = 'hidden';
+    document.getElementById("threeBack").style.visibility = 'hidden';
 };
 
 
@@ -124,31 +128,28 @@ function goToBookmarkedQuestion(bookmarkIndex) {
     if (currentQuestionIndex + 1 - 3 > 0) {
         document.getElementById("threeBack").style.color = "black";
         document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
-        document.getElementById("threeBack").disabled = false;
+        document.getElementById("threeBack").style.visibility = 'visible';
     }
     else {
-        document.getElementById("threeBack").textContent = "css is lame";
-        document.getElementById("threeBack").style.color = "white";
+        document.getElementById("threeBack").style.visibility = 'hidden';
     }
 
     if (currentQuestionIndex + 1 - 2 > 0) {
         document.getElementById("twoBack").style.color = "black";
         document.getElementById("twoBack").textContent = currentQuestionIndex + 1 - 2;
-        document.getElementById("twoBack").disabled = false;
+        document.getElementById("twoBack").style.visibility = 'visible';
     }
     else {
-        document.getElementById("twoBack").textContent = "css is lame";
-        document.getElementById("twoBack").style.color = "white";
+        document.getElementById("twoBack").style.visibility = 'hidden';
     }
 
     if (currentQuestionIndex + 1 - 1 > 0) {
         document.getElementById("oneBack").style.color = "black";
         document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
-        document.getElementById("oneBack").disabled = false;
+        document.getElementById("oneBack").style.visibility = 'visible';
     }
     else {
-        document.getElementById("oneBack").textContent = "css is lame";
-        document.getElementById("oneBack").style.color = "white";
+        document.getElementById("oneBack").style.visibility = 'hidden';
     }
 
     document.getElementById("oneForward").textContent = currentQuestionIndex + 2;
@@ -190,33 +191,29 @@ function nextQuestion(buttonOffset, direction) {
         if (currentQuestionIndex + 1 - 3 > 0) {
             document.getElementById("threeBack").style.color = "black";
             document.getElementById("threeBack").textContent = currentQuestionIndex + 1 - 3;
-            document.getElementById("threeBack").disabled = false;
+            document.getElementById("threeBack").style.visibility = 'visible';
         }
         else {
-            document.getElementById("threeBack").textContent = "css is lame";
-            document.getElementById("threeBack").style.color = "white";
+            document.getElementById("threeBack").style.visibility = 'hidden';
         }
 
         if (currentQuestionIndex + 1 - 2 > 0) {
             document.getElementById("twoBack").style.color = "black";
             document.getElementById("twoBack").textContent = currentQuestionIndex + 1 - 2;
-            document.getElementById("twoBack").disabled = false;
+            document.getElementById("twoBack").style.visibility = 'visible';
         }
         else {
-            document.getElementById("twoBack").textContent = "css is lame";
-            document.getElementById("twoBack").style.color = "white";
+            document.getElementById("twoBack").style.visibility = 'hidden';
         }
 
         if (currentQuestionIndex + 1 - 1 > 0) {
             document.getElementById("oneBack").style.color = "black";
             document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
-            document.getElementById("oneBack").disabled = false;
+            document.getElementById("oneBack").style.visibility = 'visible';
         }
         else {
-            document.getElementById("oneBack").textContent = "css is lame";
-            document.getElementById("oneBack").style.color = "white";
+            document.getElementById("oneBack").style.visibility = 'hidden';
         }
-        document.getElementById("oneBack").textContent = currentQuestionIndex + 1 - 1;
         document.getElementById("oneForward").textContent = currentQuestionIndex + 2;
         document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
         document.getElementById("threeForward").textContent = currentQuestionIndex + 4;
@@ -226,9 +223,39 @@ function nextQuestion(buttonOffset, direction) {
         currentQuestionIndex = currentQuestionIndex + buttonOffset;
         currentQuestion.innerHTML = currentQuestionIndex + 1;
 
-        document.getElementById("threeBack").textContent = currentQuestionIndex - 2;
-        document.getElementById("twoBack").textContent = currentQuestionIndex - 1;
-        document.getElementById("oneBack").textContent = currentQuestionIndex;
+        if(currentQuestionIndex - 2 > 0)
+        {
+            document.getElementById("threeBack").textContent = currentQuestionIndex - 2;
+            document.getElementById("threeBack").hidden = false;
+            document.getElementById("threeBack").style.visibility = 'visible';
+        }
+        else
+        {
+            document.getElementById("threeBack").style.visibility = 'hidden';
+        }
+
+        if(currentQuestionIndex - 1 > 0)
+        {
+            document.getElementById("twoBack").textContent = currentQuestionIndex - 1;
+            document.getElementById("twoBack").style.color = "black";
+            document.getElementById("twoBack").style.visibility = 'visible';
+        }
+        else
+        {
+            document.getElementById("twoBack").style.visibility = 'hidden';
+        }
+        
+        if(currentQuestionIndex > 0)
+        {
+            document.getElementById("oneBack").textContent = currentQuestionIndex;
+            document.getElementById("oneBack").style.visibility = 'visible';
+            document.getElementById("oneBack").style.color = "black";
+        }
+        else
+        {
+            document.getElementById("oneBack").style.visibility = 'hidden';
+        }
+        
         document.getElementById("oneForward").textContent = currentQuestionIndex + 2;
         document.getElementById("twoForward").textContent = currentQuestionIndex + 3;
         document.getElementById("threeForward").textContent = currentQuestionIndex + 4;
@@ -243,13 +270,11 @@ function nextQuestion(buttonOffset, direction) {
     document.getElementById("currentQuestionArea").textContent = questions[currentQuestionIndex];
 
     //put a green box around the answer the user selected
-
     document.getElementById("ansA").style.outline = "";
     document.getElementById("ansB").style.outline = "";
     document.getElementById("ansC").style.outline = "";
     document.getElementById("ansD").style.outline = "";
     if (usersSelectedAnswers[currentQuestionIndex]) {
-        console.log("no answer2");
         var id = "ans" + usersSelectedAnswers[currentQuestionIndex];
         document.getElementById(id).style.outline = "2px solid green";
     }
