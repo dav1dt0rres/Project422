@@ -30,7 +30,9 @@
 .button_question {
     width: 110px;
     height: 60px;
-    border-radius: 90%;}
+    border-radius: 90%;
+    font-size: 19px;
+}
 
 
 p.ex4 {
@@ -136,7 +138,12 @@ svg {
     stroke-dashoffset: 440;
     transition: all 1s linear;
 }
-
+.right_header {
+    color: #325050;
+    float: right;
+    font-size: 400%;
+    font-family: 'Libre Baskerville', sans-serif;
+}
 #Home {
     color: black;
     background-color: green;
