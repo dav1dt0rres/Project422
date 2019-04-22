@@ -1,6 +1,6 @@
 .menu {
     height: 100px;
-    background-color: rgb(160, 190, 173);
+    background-color: rgb(177, 212, 192);
 }
 
 .sidebar {
@@ -197,5 +197,9 @@ svg {
 #currentQuestionArea {
     font-size: 32px;
     color: #235050;
+}
+
+html{
+    background-color: #EDF4F0;
 }
   
