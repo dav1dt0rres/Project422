@@ -22,8 +22,8 @@
 .footer {
     height: 150px;
     padding: 3em 10%;
-    color: #fff;
-    background: #134347;
+    color: rgb(0, 0, 0);
+    background-color: #325050;
     text-align: center;    /* Light blue */
 }
 
@@ -203,3 +203,12 @@ html{
     background-color: #EDF4F0;
 }
   
+#Bookmarks, #Notes {
+    background-color: #EDF4F0;
+}
+
+#home_image {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+}
