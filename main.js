@@ -26,7 +26,16 @@ window.onload = function () {
     document.getElementById("threeBack").style.visibility = 'hidden';
 
     //breadcrumb for test screen
-    //document.getElementById("breadcrumb_test");
+    if (practice == true){
+        var str = "Practice Subjects";
+        var link = str.link("pract_mode_menu.html");  
+        document.getElementById("breadcrumb_test").innerHTML = link;  
+    }
+    else {
+        var str = "Timed Subjects";
+        var link = str.link("timed_mode_menu.html");
+        document.getElementById("breadcrumb_test").innerHTML = link;
+    }
 };
 
 
