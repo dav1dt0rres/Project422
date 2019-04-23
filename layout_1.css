@@ -1,3 +1,7 @@
+html {
+    background-color: #EDF4F0;
+}
+
 .menu {
     height: 100px;
     background-color: rgba(138,188,159,0.5);
@@ -23,7 +27,7 @@
     height: 150px;
     padding: 3em 10%;
     color: #fff;
-    background: #134347;
+    background: #325050;
     text-align: center;    /* Light blue */
 }
 

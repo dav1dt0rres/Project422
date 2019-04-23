@@ -9,7 +9,7 @@ RGB 0, 30, 98 - UIC NAVY-BLUE
 }
 
 :root {
-  --background_color: #EDF4F0
+  --background_color: #EDF4F0;
 }
 .col-md-12{
   background-color: var(--background_color);
