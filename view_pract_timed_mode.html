@@ -3,10 +3,11 @@
 
 <head>
     <link rel="stylesheet" href="layout_1.css">
+    <link rel="stylesheet" href="breadcrumbs.css">
 
     <script src="main.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <title>Website Title</title>
+    <title>Prep4Act - Test in Progress</title>
     <script>
 
         $(document).ready(function () {
@@ -41,10 +42,11 @@
             <div id="column2">
 
                 <div class='menu'>
-                    <a href="main_menu.html">
-                        <input type="image" id="image" alt="Login" src="images/15766.png" style="width:80px;"
-                            onclick="goHome()">
-                    </a>
+                    <ul class="breadcrumb">
+                        <li><a href="main_menu.html">Main Menu</a></li>
+                        <li id="breadcrumb_test"><a href="pract_mode_menu.html">Subjects</a></li>
+                        <li>Test In Progress</li>
+                    </ul>
                 </div>
 
 
